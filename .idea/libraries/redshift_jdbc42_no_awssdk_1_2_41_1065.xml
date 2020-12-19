@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="redshift-jdbc42-no-awssdk-1.2.41.1065">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/redshift-jdbc42-no-awssdk-1.2.41.1065.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
