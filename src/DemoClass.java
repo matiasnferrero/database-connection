@@ -2,6 +2,23 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class DemoClass {
+
+
+    private static void print_query_results(ResultSet rs) throws SQLException {
+
+        ResultSetMetaData rsmd = rs.getMetaData();
+        int columnsNumber = rsmd.getColumnCount();
+        while (rs.next()) {
+            for (int i = 1; i <= columnsNumber; i++) {
+                if (i > 1) System.out.print(",  ");
+                String columnValue = rs.getString(i);
+                System.out.print(columnValue + " " + rsmd.getColumnName(i));
+            }
+            System.out.println("");
+        }
+    }
+
+
     public static void main(String[] args)
 
     {
@@ -28,7 +45,7 @@ public class DemoClass {
             System.out.println("connection string: " + url);
 
             boolean isFound = query.contains("LIMIT");
-            
+
 
             if (isFound==false) {
                 int MAX_RESULTS = 5;
@@ -59,19 +76,7 @@ public class DemoClass {
 
 
 
-    private static void print_query_results(ResultSet rs) throws SQLException {
 
-        ResultSetMetaData rsmd = rs.getMetaData();
-        int columnsNumber = rsmd.getColumnCount();
-        while (rs.next()) {
-            for (int i = 1; i <= columnsNumber; i++) {
-                if (i > 1) System.out.print(",  ");
-                String columnValue = rs.getString(i);
-                System.out.print(columnValue + " " + rsmd.getColumnName(i));
-            }
-            System.out.println("");
-        }
-    }
 
 
 }
